@@ -1,11 +1,17 @@
-server: "hub-cloud.browserstack.com"
-user: "BROWSERSTACK_USERNAME"
-key: "BROWSERSTACK_ACCESS_KEY"
+server: hub-cloud.browserstack.com
+user: BROWSERSTACK_USERNAME
+key: BROWSERSTACK_ACCESS_KEY
 
 common_caps:
-  "build": "capybara-browserstack"
-  "browserstack.debug": true
+  browserstack.use_w3c: true
+  bstack:options:
+    os: Windows
+    buildName: Capybara-browserstack"
+    osVersion: '7'
+    sessionName: Single Session 
+    projectName: Test Application
+    debug: true
 
 browser_caps:
-  -
-    "browser": "chrome"
+  - browserName: Chrome
+    browserVersion: '70.0'

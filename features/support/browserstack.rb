@@ -21,16 +21,18 @@ Capybara.register_driver :browserstack do |app|
   @caps = CONFIG['common_caps'].merge(CONFIG['browser_caps'][TASK_ID])
 
   # Code to start browserstack local before start of test
-  if @caps['browserstack.local'] && @caps['browserstack.local'].to_s == 'true'
+  if @caps['bstack:options'] && @caps['bstack:options']['local'] == true
     @bs_local = BrowserStack::Local.new
     bs_local_args = { 'key' => (CONFIG['key']).to_s }
     @bs_local.start(bs_local_args)
   end
 
-  Capybara::Selenium::Driver.new(app,
-                                 browser: :remote,
-                                 url: "http://#{CONFIG['user']}:#{CONFIG['key']}@#{CONFIG['server']}/wd/hub",
-                                 desired_capabilities: @caps)
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :remote,
+    url: "http://#{CONFIG['user']}:#{CONFIG['key']}@#{CONFIG['server']}/wd/hub",
+    desired_capabilities: @caps
+  )
 end
 
 Capybara.default_driver = :browserstack
