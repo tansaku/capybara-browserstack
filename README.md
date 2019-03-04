@@ -6,7 +6,7 @@
 ## Setup
 * Clone the repo
 * Install dependencies `bundle install`
-* Update `*.config.yml` files inside the `config/` directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
+* To test various sample repositories with ease, it is recommended to setup `BROWSERSTACK_USERNAME` and `BROWSERSTACK_ACCESS_KEY` environment variables. Alternatively you can directly update `*.config.yml` files inside the `config/` directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
 
 ### Running your tests
 * To run a single test, run `bundle exec rake single`
