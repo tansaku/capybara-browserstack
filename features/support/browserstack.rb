@@ -27,12 +27,10 @@ Capybara.register_driver :browserstack do |app|
     @bs_local.start(bs_local_args)
   end
 
-  Capybara::Selenium::Driver.new(
-    app,
-    browser: :remote,
-    url: "http://#{CONFIG['user']}:#{CONFIG['key']}@#{CONFIG['server']}/wd/hub",
-    desired_capabilities: @caps
-  )
+  Capybara::Selenium::Driver.new(app,
+                                 browser: :remote,
+                                 url: "https://#{CONFIG['user']}:#{CONFIG['key']}@#{CONFIG['server']}/wd/hub",
+                                 desired_capabilities: @caps)
 end
 
 Capybara.default_driver = :browserstack
