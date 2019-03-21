@@ -8,4 +8,5 @@ common_caps:
 
 browser_caps:
   -
+    "project": "SampleProject"
     "browser": "chrome"
